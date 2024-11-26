@@ -1,3 +1,7 @@
 import joblib
-joblib.dump(rf_model, 'housing_model.pkl')
+from sklearn.linear_model import LinearRegression
 
+# Assuming this was your model creation process
+model = LinearRegression()
+# Train the model...
+joblib.dump(model, 'housing_model.pkl')
