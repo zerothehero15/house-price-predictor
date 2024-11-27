@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Load the saved model with error handling
 try:
-    model = joblib.load('housing_model.pkl')
+    model = joblib.load('/path/to/housing_model.pkl')
 except Exception as e:
     print(f"Error loading model: {e}")
     model = None
