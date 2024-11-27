@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import os
 
-app = Flask(__name__, template_folder='index.html'))
+app = Flask(__name__, template_folder='templates')
 
 # Load the saved model with error handling
 try:
