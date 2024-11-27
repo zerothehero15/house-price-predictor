@@ -13,12 +13,12 @@ except Exception as e:
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('templatesindex.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
-        return render_template('index.html', prediction_text="Error: Model not loaded!")
+        return render_template('templatesindex.html', prediction_text="Error: Model not loaded!")
 
     # Get input data from the form
     size = float(request.form['size'])
@@ -34,7 +34,7 @@ def predict():
     # Predict the price
     prediction = model.predict(input_features)[0]
 
-    return render_template('index.html', prediction_text=f'Predicted House Price: ${prediction:,.2f}')
+    return render_template('templatesindex.html', prediction_text=f'Predicted House Price: ${prediction:,.2f}')
 
 if __name__ == "__main__":
     app.run(debug=True)
