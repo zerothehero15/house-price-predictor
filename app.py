@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import os
 
-app = Flask(__name__, template_folder='index.html')
+app = Flask(__name__, templates_folder='index.html')
 
 # Load the saved model with error handling
 try:
@@ -15,12 +15,12 @@ except Exception as e:
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_templates('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
-        return render_template('index.html', prediction_text="Error: Model not loaded!")
+        return render_templates('index.html', prediction_text="Error: Model not loaded!")
 
     # Get input data from the form
     try:
@@ -31,7 +31,7 @@ def predict():
         year_built = int(request.form['year_built'])
         lot_size = float(request.form['lot_size'])
     except ValueError as e:
-        return render_template('index.html', prediction_text="Error: Invalid input values!")
+        return render_templates('index.html', prediction_text="Error: Invalid input values!")
     
     try:
         # Create input array for the model
@@ -40,9 +40,9 @@ def predict():
         # Predict the price
         prediction = model.predict(input_features)[0]
     except Exception as e:
-        return render_template('index.html', prediction_text=f"Error during prediction: {e}")
+        return render_templates('index.html', prediction_text=f"Error during prediction: {e}")
 
-    return render_template('index.html', prediction_text=f'Predicted House Price: ${prediction:,.2f}')
+    return render_templates('index.html', prediction_text=f'Predicted House Price: ${prediction:,.2f}')
 
 if __name__ == "__main__":
     app.run(debug=True)
