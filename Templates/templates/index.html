@@ -9,22 +9,22 @@
     <h1>House Price Prediction</h1>
     <form action="/predict" method="POST">
         <label for="size">Size (sqft):</label><br>
-        <input type="text" id="size" name="size" required><br><br>
+        <input type="number" id="size" name="size" required><br><br>
 
         <label for="bedrooms">Number of Bedrooms:</label><br>
-        <input type="text" id="bedrooms" name="bedrooms" required><br><br>
+        <input type="number" id="bedrooms" name="bedrooms" required><br><br>
 
         <label for="bathrooms">Number of Bathrooms:</label><br>
-        <input type="text" id="bathrooms" name="bathrooms" required><br><br>
+        <input type="number" id="bathrooms" name="bathrooms" required><br><br>
 
         <label for="location">Location (encoded):</label><br>
-        <input type="text" id="location" name="location" required><br><br>
+        <input type="number" id="location" name="location" required><br><br>
 
         <label for="year_built">Year Built:</label><br>
-        <input type="text" id="year_built" name="year_built" required><br><br>
+        <input type="number" id="year_built" name="year_built" required><br><br>
 
         <label for="lot_size">Lot Size (sqft):</label><br>
-        <input type="text" id="lot_size" name="lot_size" required><br><br>
+        <input type="number" id="lot_size" name="lot_size" required><br><br>
 
         <button type="submit">Predict</button>
     </form>
