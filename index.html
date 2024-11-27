@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">House Price Prediction</h1>
+        <p class="text-center">Fill out the form below to predict the house price based on your inputs.</p>
+
+        <!-- Prediction Form -->
+        <form action="/predict" method="POST">
+            <div class="mb-3">
+                <label for="size" class="form-label">Size (in sq ft)</label>
+                <input type="number" class="form-control" id="size" name="size" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="bedrooms" class="form-label">Number of Bedrooms</label>
+                <input type="number" class="form-control" id="bedrooms" name="bedrooms" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="bathrooms" class="form-label">Number of Bathrooms</label>
+                <input type="number" class="form-control" id="bathrooms" name="bathrooms" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location (encoded)</label>
+                <input type="number" class="form-control" id="location" name="location" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="year_built" class="form-label">Year Built</label>
+                <input type="number" class="form-control" id="year_built" name="year_built" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="lot_size" class="form-label">Lot Size (in sq ft)</label>
+                <input type="number" class="form-control" id="lot_size" name="lot_size" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict Price</button>
+        </form>
+
+        <!-- Display Prediction Result -->
+        {% if prediction_text %}
+            <div class="mt-4 alert alert-info" role="alert">
+                <strong>Prediction: </strong>{{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
